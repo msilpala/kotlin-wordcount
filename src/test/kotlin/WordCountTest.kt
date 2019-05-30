@@ -12,7 +12,7 @@ class WordCountTest {
     }
 
     @Test
-    fun countsOneOfEach() {
+    fun countsMultipleWords() {
         val input = "one of each"
         val expectedWordCount = mapOf(
                 "one" to 1,
@@ -25,13 +25,23 @@ class WordCountTest {
 
     @Test
     fun countsMultipleOccurrencesOfAWord() {
-        val input = "one fish two fish red fish blue fish"
+        val input = "yo yo yo"
+        val expectedWordCount = mapOf(
+                "yo" to 3
+        )
+
+        assertEquals(expectedWordCount, WordCount().phrase(input))
+    }
+
+    @Test
+    fun countsMultipleOccurrencesOfMultipleWords() {
+        val input = "one fish two fish red fish blue fish red blue two"
         val expectedWordCount = mapOf(
                 "one" to 1,
                 "fish" to 4,
-                "two" to 1,
-                "red" to 1,
-                "blue" to 1
+                "two" to 2,
+                "red" to 2,
+                "blue" to 2
         )
 
         assertEquals(expectedWordCount, WordCount().phrase(input))
@@ -48,5 +58,4 @@ class WordCountTest {
 
         assertEquals(expectedWordCount, WordCount().phrase(input))
     }
-
 }
