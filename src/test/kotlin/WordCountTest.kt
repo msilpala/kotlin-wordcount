@@ -24,7 +24,6 @@ class WordCountTest {
         assertEquals(expectedWordCount, WordCount().phrase(input))
     }
 
-    @Ignore
     @Test
     fun countsMultipleOccurrencesOfAWord() {
         val input = "one fish two fish red fish blue fish"
