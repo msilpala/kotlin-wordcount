@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 class WordCountTest {
 
     @Test
-    fun countOneWord() {
+    fun countsOneWord() {
         val input = "word"
         val expectedWordCount = mapOf("word" to 1)
 
@@ -13,7 +13,7 @@ class WordCountTest {
     }
 
     @Test
-    fun countOneOfEach() {
+    fun countsOneOfEach() {
         val input = "one of each"
         val expectedWordCount = mapOf(
                 "one" to 1,
@@ -26,7 +26,7 @@ class WordCountTest {
 
     @Ignore
     @Test
-    fun countMultipleOccurrences() {
+    fun countsMultipleOccurrencesOfAWord() {
         val input = "one fish two fish red fish blue fish"
         val expectedWordCount = mapOf(
                 "one" to 1,
@@ -41,7 +41,7 @@ class WordCountTest {
 
     @Ignore
     @Test
-    fun countCrampedList() {
+    fun countsCrampedList() {
         val input = "one,two,three"
         val expectedWordCount = mapOf(
                 "one" to 1,
@@ -54,7 +54,7 @@ class WordCountTest {
 
     @Ignore
     @Test
-    fun countExpandedList() {
+    fun countsExpandedList() {
         val input = "one,\ntwo,\nthree"
         val expectedWordCount = mapOf("one" to 1, "two" to 1, "three" to 1)
 
@@ -63,7 +63,7 @@ class WordCountTest {
 
     @Ignore
     @Test
-    fun ignorePunctuation() {
+    fun ignoresPunctuation() {
         val input = "car: carpet as java: javascript!!&@\$%^&"
         val expectedWordCount = mapOf("car" to 1, "carpet" to 1, "as" to 1, "java" to 1, "javascript" to 1)
 

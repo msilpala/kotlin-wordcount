@@ -29,3 +29,5 @@ jar {
     attributes 'Main-Class': 'WordCountKt'
   }
 }
+
+defaultTasks 'clean', 'test', 'shadowJar'
