@@ -8,7 +8,7 @@ class WordCount {
     fun phrase(phrase: String): Map<String, Int> {
         val wordCounts = mutableMapOf<String, Int>()
 
-        val words = phrase.split(' ')
+        val words = phrase.split(' ', ',')
         words.forEach { word ->
             wordCounts[word] = (wordCounts[word] ?: 0) + 1
         }

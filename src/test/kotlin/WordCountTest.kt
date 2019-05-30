@@ -1,5 +1,5 @@
-import org.junit.Test
 import org.junit.Ignore
+import org.junit.Test
 import kotlin.test.assertEquals
 
 class WordCountTest {
@@ -38,13 +38,12 @@ class WordCountTest {
         assertEquals(expectedWordCount, WordCount().phrase(input))
     }
 
-    @Ignore
     @Test
-    fun countsCrampedList() {
-        val input = "one,two,three"
+    fun countsWithCommaDelimiter() {
+        val input = "one,two,three,two,one"
         val expectedWordCount = mapOf(
-                "one" to 1,
-                "two" to 1,
+                "one" to 2,
+                "two" to 2,
                 "three" to 1
         )
 
@@ -53,7 +52,7 @@ class WordCountTest {
 
     @Ignore
     @Test
-    fun countsExpandedList() {
+    fun countsAcrossMultipleLines() {
         val input = "one,\ntwo,\nthree"
         val expectedWordCount = mapOf("one" to 1, "two" to 1, "three" to 1)
 
@@ -64,7 +63,13 @@ class WordCountTest {
     @Test
     fun ignoresPunctuation() {
         val input = "car: carpet as java: javascript!!&@\$%^&"
-        val expectedWordCount = mapOf("car" to 1, "carpet" to 1, "as" to 1, "java" to 1, "javascript" to 1)
+        val expectedWordCount = mapOf(
+                "car" to 1,
+                "carpet" to 1,
+                "as" to 1,
+                "java" to 1,
+                "javascript" to 1
+        )
 
         assertEquals(expectedWordCount, WordCount().phrase(input))
     }
@@ -104,5 +109,4 @@ class WordCountTest {
 
         assertEquals(expectedWordCount, WordCount().phrase(input))
     }
-
 }
