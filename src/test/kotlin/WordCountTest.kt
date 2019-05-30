@@ -58,4 +58,16 @@ class WordCountTest {
 
         assertEquals(expectedWordCount, WordCount().phrase(input))
     }
+
+    @Test
+    fun countsWithMixOfSpaceAndCommaDelimiters() {
+        val input = "one two,three two,one"
+        val expectedWordCount = mapOf(
+                "one" to 2,
+                "two" to 2,
+                "three" to 1
+        )
+
+        assertEquals(expectedWordCount, WordCount().phrase(input))
+    }
 }
