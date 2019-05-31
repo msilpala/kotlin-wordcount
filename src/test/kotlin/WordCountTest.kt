@@ -6,9 +6,9 @@ class WordCountTest {
     @Test
     fun countsOneWord() {
         val input = "word"
-        val expectedWordCount = mapOf("word" to 1)
+        val expectedOutput = mapOf("word" to 1)
 
-        assertEquals(expectedWordCount, WordCount().phrase(input))
+        assertEquals(expectedOutput, WordCount().phrase(input))
     }
 
     @Test
@@ -30,7 +30,9 @@ class WordCountTest {
                 "yo" to 3
         )
 
-        assertEquals(expectedWordCount, WordCount().phrase(input))
+        val actualOutput = WordCount().phrase(input)
+
+        assertEquals(expectedWordCount, actualOutput)
     }
 
     @Test
@@ -68,6 +70,35 @@ class WordCountTest {
                 "three" to 1
         )
 
-        assertEquals(expectedWordCount, WordCount().phrase(input))
+        val actual = WordCount().phrase(input)
+
+        assertEquals(expectedWordCount, actual)
     }
+
+    @Test
+    fun countsWithMixOfConsecutiveDelimiters() {
+        val input = "chameleon, tree"
+        val expectedOutput = mapOf(
+                "chameleon" to 1,
+                "tree" to 1
+        )
+
+        val actual = WordCount().phrase(input)
+        assertEquals(expectedOutput, actual)
+
+    }
+
+    @Test
+    fun countsDifferentCapitalizationAsDifferentWords() {
+        val input = "Tree, tree"
+        val expectedOutput = mapOf(
+                "Tree" to 1,
+                "tree" to 1
+        )
+
+        val actual = WordCount().phrase(input)
+        assertEquals(expectedOutput, actual)
+
+    }
+    // Does order matter in maps?
 }
